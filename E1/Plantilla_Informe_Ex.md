@@ -23,6 +23,7 @@
 ![Esquema BD](E1PRUEBA.drawio.svg)
 
 ### 2.3 Consultas SQL
+![Esquema BD](E1-IIC2413.png)
 
 
 ## 3. Referencias y bibliografía externa
