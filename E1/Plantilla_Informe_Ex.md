@@ -1,4 +1,4 @@
-# Informe Entrega X - Bases de datos IIC2413
+# Informe Entrega 1 - Bases de datos IIC2413
 
 ## Datos del Alumno
 | **Apellidos**       | **Nombres**          | **Número de Alumno** |
@@ -8,7 +8,8 @@
 
 ## 1. Descripción y análisis del problema
 	(Describe aquí el planteamiento del problema y el análisis de la solución global)
-
+	
+	El problema consiste en 
 
 ## 2. Solución aplicada
 	(Describe aquí la solución al problema)
@@ -23,8 +24,8 @@
 ![Esquema BD](E1PRUEBA.drawio.svg)
 
 ### 2.3 Consultas SQL
-![Esquema BD](E1-IIC2413.png)
 
+	A
 
 ## 3. Referencias y bibliografía externa
 <!-- en cada sección indica %IA, Tecnología y Prompt -->
