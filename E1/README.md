@@ -22,7 +22,7 @@
 <!-- Usa el formato svg para evitar la perdida de calidad.> -->
 
 ### 2.2 Modelo Entidad Relación normalizado
-![Esquema BD](ER-JOAB.drawio.svg)
+![Esquema BD](ER-JOA.drawio.svg)
 
 ### 2.3 Consultas SQL
 
