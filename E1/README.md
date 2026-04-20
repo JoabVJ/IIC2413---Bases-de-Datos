@@ -154,8 +154,10 @@ Aquí utilizamos Jerarquía de Clases para modelar donde **PERSONA**, actúa com
 ## 3. Referencias y bibliografía externa
 <!-- en cada sección indica %IA, Tecnología y Prompt -->
 Para este trabajo usé solamente el material del curso tanto Ayudantías (en especial la 2, 3 y 4) como los apuntes que hacía en clases.
-Excepto, con los emoticones que se ven en este README.md o la citación de links. Adjuntaré los links:  
+Excepto, con los emoticones que se ven en este README.md, la citación de links, o saltos de linea como ´</br>´. Adjuntaré los links:  
   
+<https://spec.commonmark.org/0.30/#hard-line-breaks>
+
 <https://markdown.es/sintaxis-markdown/>  
   
 <https://emojiterra.com/es/cuadrado-azul/>  
