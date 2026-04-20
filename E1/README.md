@@ -25,7 +25,7 @@
 ### 2.2 Modelo Esquema Relacional normalizado
 <!-- ![Esquema BD](ER-JOAB.drawio.svg) -->
 
-Persona(RUN *PK*: int, nombre_completo: str, correo: str, comuna: str, direccion: str, telefono:str, telefono_alternativo)
+**Persona**(RUN *PK*: *str*, nombre_completo: *str*, correo: *str*, comuna: *str*, direccion: *str*, telefono:*int*, telefono_alternativo: *int*)
 
 ### 2.3 Consultas SQL
 
