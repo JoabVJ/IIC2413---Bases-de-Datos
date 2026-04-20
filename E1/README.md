@@ -27,15 +27,16 @@ Una entidad personas que es la base para formar a los distintos tipos, tales com
 <!-- Usa el formato svg para evitar la perdida de calidad.> -->
 ![Esquema BD](ER-JOAB.drawio.svg)
 
-### 2.2 Modelo Esquema Relacional normalizado
+### 2.2 Modelo Esquema Relacional normalizado  
 <!-- ![Esquema BD](ER-JOAB.drawio.svg) -->
-
+  
 Aquí utilizamos Jerarquía de Clases para modelar a las personas:  
 _(Considero el RUN como str: "22059654-0" o "22.059.654-0" o "220596540")_  
------------
-🟦 *Relación:* Tablas  
-🔶 *Tablas que conectan a otras dos tablas*
------------
+
+|   🟦   | **Relación:** Tablas                     |
+|---------|------------------------------------------|
+|   🔶   | *Tablas que conectan a otras dos tablas* |
+
 
 🟦**PERSONA** (RUN PK: str, nombre_completo: str, correo: str, comuna: str, direccion: str, telefono: int, telefono_alternativo: int)
 
