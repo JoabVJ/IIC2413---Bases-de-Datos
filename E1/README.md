@@ -30,7 +30,7 @@
 Aquí utilizamos Jerarquía de Clases para modelar a las personas:  
 _(Considero el RUN como str: "22059654-0" o "22.059.654-0" o "220596540")_  
 -----------
-🟦 *Relación:* Tablas
+🟦 *Relación:* Tablas  
 🔶 *Tablas que conectan a otras dos tablas*
 -----------
 
