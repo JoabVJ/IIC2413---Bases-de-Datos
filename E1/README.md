@@ -30,26 +30,26 @@
 Aquí utilizamos Jerarquía de Clases para modelar a las personas:  
 _(Considero el RUN como str: "22059654-0" o "22.059.654-0" o "220596540")_  
 
-**PERSONA**(RUN PK: str, nombre_completo: str, correo: str, comuna: str, direccion: str, telefono: int, telefono_alternativo: int)
+**PERSONA** (RUN PK: str, nombre_completo: str, correo: str, comuna: str, direccion: str, telefono: int, telefono_alternativo: int)
 
-🟦 **USUARIO**(identificacion PK: int, RUN FK: str, clave: str)
+🟦 **USUARIO** (identificacion PK: int, RUN FK: str, clave: str)
 
-🟦 **SOCIO**(id_socio PK: int, RUN FK: str, estado:str)
+🟦 **SOCIO** (id_socio PK: int, RUN FK: str, estado:str)
 
-🟦 **BENEFICIARIO**(RUN FK: str) 
+🟦 **BENEFICIARIO** (RUN FK: str) 
 
-🟦 **ADICIONAL**(RUN FK: str)
+🟦 **ADICIONAL** (RUN FK: str)
 
-🟦 **INIVITADOS**(RUN FK: str)
+🟦 **INIVITADOS** (RUN FK: str)
 
-🟦 **CONTACTO_EMPRESA**(RUN FK: str, cargo: str)
+🟦 **CONTACTO_EMPRESA** (RUN FK: str, cargo: str)
 
-**CARGOS**()
+**CARGOS** ()
 
-**SISTEMA**(ID PK: int, admin: str)
+**SISTEMA** (ID PK: int, admin: str)
 
-🟦 **RESERVAS**(ID FK/PK: int, codigo PK: int, estado: str, horarios: date)  
-🔶 **tiene_acceso**(ID FK: int, identificacion FK: int, codigo FK: int) ➡️ _Relación Usuario con Reservas_
+🟦 **RESERVAS** (ID FK/PK: int, codigo PK: int, estado: str, horarios: date)  
+🔶 **tiene_acceso** (ID FK: int, identificacion FK: int, codigo FK: int) ➡️ _Relación Usuario con Reservas_
 
 
 
