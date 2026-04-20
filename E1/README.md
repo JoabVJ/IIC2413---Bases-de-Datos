@@ -9,12 +9,14 @@
 ## 1. Descripción y análisis del problema
 	(Describe aquí el planteamiento del problema y el análisis de la solución global)
 	
-	Se nos pide modelar sobre el Club Social y Deportivo DCColo, lo que causa grandes problemáticas a la hora de relacionar cada una de las partes y dinámicas del club, tales como, eventos con lugares, personas a eventos, entre otros...
+	Se nos pide modelar sobre el Club Social y Deportivo DCColo, para así darle sentido y bases a este Club. De tal forma, que debemos crear las conexiones necesarias entre las distintas entidades, a qué les daremos acceso y la totalidad de funciones que queremos crear para que realmente esto pueda funcionar como debiera un Club Social y Deportivo real. La solución global es la capacidad de poder crear esta base de datos, para finalmente poder hacer consultas directas y gracias al modelamiento realizado lograr llegar a que la consulta pueda dar el resultado pertinente, necesario, para resolver problemas o dudas regulares del club.
 	
 
 ## 2. Solución aplicada
 	(Describe aquí la solución al problema)
+	Queremos modelar esto de la siguiente forma:
 
+	Una entidad personas que es la base para formar a los distintos tipos, tales como: Socios, Beneficiarios, Adicionales, Invitados, Contacto empresa, 
 
 ### 2.1 Modelo Entidad Relación
 
@@ -25,7 +27,24 @@
 ### 2.2 Modelo Esquema Relacional normalizado
 <!-- ![Esquema BD](ER-JOAB.drawio.svg) -->
 
-**Persona**(RUN *PK*: *str*, nombre_completo: *str*, correo: *str*, comuna: *str*, direccion: *str*, telefono:*int*, telefono_alternativo: *int*)
+Aquí utilizamos Jerarquía de Clases para modelar a las personas:
+_(Considero el RUN como str: "22059654-0" o "22.059.654-0" o "220596540")_
+
+- **PERSONA**(RUN PK: str, nombre_completo: str, correo: str, comuna: str, direccion: str, telefono: int, telefono_alternativo: int)
+
+- **USUARIO**(identificacion PK: int, clave: str)
+
+- **BENEFICIARIO**(RUN PK: str) 
+
+- **ADICIONAL**(RUN PK: str)
+
+- **INIVITADOS**(RUN PK: str)
+
+- **CONTACTO_EMPRESA**(RUN PK: str, cargo: str)
+
+
+
+
 
 ### 2.3 Consultas SQL
 
