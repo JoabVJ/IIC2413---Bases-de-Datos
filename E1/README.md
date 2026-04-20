@@ -25,7 +25,7 @@
 ### 2.2 Modelo Esquema Relacional normalizado
 <!-- ![Esquema BD](ER-JOAB.drawio.svg) -->
 
-Persona(<u>RUN</u>: int, nombre_completo: str, )
+Persona(<RUN>: int, nombre_completo: str, )
 
 ### 2.3 Consultas SQL
 
