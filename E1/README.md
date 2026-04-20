@@ -14,6 +14,9 @@
 
 ## 2. Solución aplicada
 	(Describe aquí la solución al problema)
+
+	**Aclaración:** En clases de la sección 1, el profesor dice que no es necesaria la diferenciación entre una flecha gruesa (1 a n, por ejemplo) o una flecha normal (0 o 1 a n), por tanto, utilizo sólo flechas normales.
+	
 	Queremos modelar esto de la siguiente forma:
 
 	Una entidad personas que es la base para formar a los distintos tipos, tales como: Socios, Beneficiarios, Adicionales, Invitados, Contacto empresa, 
