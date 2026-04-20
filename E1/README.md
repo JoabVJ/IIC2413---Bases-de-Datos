@@ -21,8 +21,15 @@ Queremos modelar esto de la siguiente forma:
   
 Una entidad personas que es la base para formar a los distintos tipos, tales como: Socios, Beneficiarios, Adicionales, Invitados, Contacto empresa, 
 
-### 2.1 Modelo Entidad Relación
+### 2.1 Modelo Entidad Relación  
 
+|   🟩   | Entidades                     |
+|---------|-------------------------------|
+|   🔷   | Relaciones                    |  
+
+**ENTIDADES DÉBILES:** 
+- 
+  
 	Inserta aquí el diagrama del modelo E/R "diagrama.svg" 
 <!-- Usa el formato svg para evitar la perdida de calidad.> -->
 ![Esquema BD](ER-JOAB.drawio.svg)
@@ -63,22 +70,34 @@ Aquí utilizamos Jerarquía de Clases para modelar donde **PERSONA**, actúa com
 🟦 **SISTEMA** (ID PK: int, admin: str)  
 
 - 🟦 **RESERVAS** (ID FK/PK: int, codigo PK: int, estado: str, fecha: date, hora: timestamp)  
-**Justificacion:** Se lee "Muchas Reservas son de un solo Sistema". Y como es una Entidad Débil, y además tiene una llave foránea, sólo el par (ID, codigo) es una llave primaria y los demás atributos de Reservas dependen de esta, por tanto, está en BCNF.   
+**Justificacion:** Se lee "Una Reserva es de un Sistema". Y como es una Entidad Débil, y además tiene una llave foránea, sólo el par (ID, codigo) es una llave primaria y los demás atributos de Reservas dependen de esta, por tanto, está en BCNF.   
   
 - 🔶 **tiene_acceso** (ID FK: int, identificacion FK: int, codigo FK: int) ➡️ _Relación Usuario con Reservas_  
 **Justificacion:** Se lee "Un Usuario puede tener acceso a muchas Reservas" y "Una Reserva puede ser accedida por muchos Usuarios". Debido a que cada uno tiene una superllave, entonces está en BCNF.
 
 🟦 **SUCURSALES** (id_sucursal PK: int, nombre: str, comuna: str, gerente: str, id_socio_asignado: int, monto_a_pagar: int, cuotas: int)  
   
-- 🟦 **MEMBRESÍA** (id_miembro:FK, id_sucursal PK, fecha_inicio: date, fecha_termino: date, valor_socio: int, valor_por_adicional_invitado: int)
+- 🟦 **MEMBRESÍA** (id_sucursal PK, id_miembro:FK, fecha_inicio: date, fecha_termino: date, valor_socio: int, valor_por_adicional_invitado: int)  
+**Justificacion:** Se lee "Una Membresía depende de su respectiva Sucursal". Y como es una Entidad Débil, y además tiene una llave foránea, sólo el par (ID, codigo) es una llave primaria y los demás atributos de Reservas dependen de esta, por tanto, está en BCNF. 
+  
+- 🟦 **COMUNA** (codigo_unico PK: int, nombre:str)  
+**Justificacion:** Se lee "Una Sucursal pertenece a lo más a 1 Comuna" y "Una Comuna tiene a lo más una sucursal". **FALTA DECIR PQ ESTA EN BOYCE CODD**
+  
+- 🟦 **REGION** (codigo PK: int, nombre: str)  
+**Justificacion:** Se lee "Una Comuna pertenece a una Region" y "Una Region puede tener muchas Comunas". **FALTA DECIR PQ ESTA EN BOYCE CODD**
 
-- 🟦 **COMUNA** (codigo_unico PK: int, nombre:str)
-
-- 🟦 **REGION** (codigo PK: int, nombre: str)
-
+🟦 **LUGARES** (ID PK: int, precio: int, capacidad: int, tipo: str, hora: timestamp, fecha: date, valor_arriendo: int)
+**Justificacion:** Se lee "Una sucursal puede contar con muchos lugares" y "Un Lugar puede estar en muchas Sucursales". **FALTA DECIR PQ ESTA EN BOYCE CODD**
 
 
+- 🟦 **RESERVA** (nombre: str, ejecutada: bool, monto_pagado: int, faltante: int)  
+**Justificacion:** Se lee "Una Reserva es de un respectivo Lugar". Y como es una Entidad Débil, y además tiene una llave foránea, sólo el par (ID, nombre) es una llave primaria y los demás atributos de Reserva dependen de esta, por tanto, está en BCNF.  
 
+
+
+🟦 **EVENTOS** ()
+🟦 **** ()
+🟦 **** ()
 
 ### 2.3 Consultas SQL
 
