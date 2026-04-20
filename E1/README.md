@@ -55,18 +55,21 @@ Aquí utilizamos Jerarquía de Clases para modelar donde **PERSONA**, actúa com
 🟦 **CARGOS** (ID PK: int, tipo: str, fecha_inicio: date, fecha_fin: date)  
 
 - 🔶 **tiene_un** (identificacion PK: int, ID PK: int) ➡️ _Relación Usuario con Cargos_  
-**Justificacion:** Se lee "Un Usuario puede tener muchos cargos" y "Un Cargo puede ser dado a muchos Usuarios"  
+**Justificacion:** Se lee "Un Usuario puede tener muchos cargos" y "Un Cargo puede ser dado a muchos Usuarios". Debido a que cada uno tiene una superllave, entonces está en BCNF.
 
 - 🔶 **desempena** (id_socio PK: int, ID PK: int) ➡️ _Relación Socios con Cargos_  
-**Justificacion:** Se lee "Un Socio puede desempeñarse en muchos cargos" y "Un Cargo puede ser dado a muchos Socios"  
+**Justificacion:** Se lee "Un Socio puede desempeñarse en muchos cargos" y "Un Cargo puede ser dado a muchos Socios". Debido a que cada uno tiene una superllave, entonces está en BCNF.
   
 🟦 **SISTEMA** (ID PK: int, admin: str)  
 
-- 🟦 **RESERVAS** (ID FK/PK: int, codigo PK: int, estado: str, horarios: date)  
-- 🔶 **tiene_acceso** (ID FK: int, identificacion FK: int, codigo FK: int) ➡️ _Relación Usuario con Reservas_
+- 🟦 **RESERVAS** (ID FK/PK: int, codigo PK: int, estado: str, fecha: date, hora: timestamp)  
+**Justificacion:** Se lee "Muchas Reservas son de un solo Sistema". Y como es una Entidad Débil, y además tiene una llave foránea, sólo el par (ID, codigo) es una llave primaria y los demás atributos de Reservas dependen de esta, por tanto, está en BCNF.   
+  
+- 🔶 **tiene_acceso** (ID FK: int, identificacion FK: int, codigo FK: int) ➡️ _Relación Usuario con Reservas_  
+**Justificacion:** Se lee "Un Usuario puede tener acceso a muchas Reservas" y "Una Reserva puede ser accedida por muchos Usuarios". Debido a que cada uno tiene una superllave, entonces está en BCNF.
 
-
-🟦 **SUCURSALES** (id_sucursal PK: int, nombre: str, comuna: str, gerente: str, id_socio_asignado: int, monto_a_pagar: int, cuotas: int)
+🟦 **SUCURSALES** (id_sucursal PK: int, nombre: str, comuna: str, gerente: str, id_socio_asignado: int, monto_a_pagar: int, cuotas: int)  
+  
 - 🟦 **MEMBRESÍA** (id_miembro:FK, id_sucursal PK, fecha_inicio: date, fecha_termino: date, valor_socio: int, valor_por_adicional_invitado: int)
 
 - 🟦 **COMUNA** (codigo_unico PK: int, nombre:str)
