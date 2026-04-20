@@ -32,14 +32,10 @@ Una entidad personas que es la base para formar a los distintos tipos, tales com
   
 ¡**Aclaración:** No escribí las relaciones (del modelo E/R) que tenían una cardinalidad "(0 o 1) a n", viceversa, o "(0 o 1) a (0 o 1)". Debido a que, notamos en las clases que con una llave foránea basta para evitar tergiversación en los datos (por ejemplo, al hacer joins entre las 3 tablas)!
 
-Aquí utilizamos Jerarquía de Clases para modelar a las personas:  
-_(Considero el RUN como str: "22059654-0" o "22.059.654-0" o "220596540")_  
-
 |   🟦   | Relación (Tablas)                     |
 |---------|------------------------------------------|
 |   🔶   | **Tablas que conectan a otras dos tablas** |
-
-
+  
 🟦 **PERSONA** (RUN PK: str, nombre_completo: str, correo: str, comuna: str, direccion: str, telefono: int, telefono_alternativo: int)
 
 - 🟦 **USUARIO** (identificacion PK: int, RUN FK: str, clave: str)
@@ -52,14 +48,17 @@ _(Considero el RUN como str: "22059654-0" o "22.059.654-0" o "220596540")_
 
 - 🟦 **INIVITADOS** (RUN FK: str)
 
-- 🟦 **CONTACTO_EMPRESA** (RUN FK: str, cargo: str)    
-  
+- 🟦 **CONTACTO_EMPRESA** (RUN FK: str, cargo: str)   
+_(Considero el RUN como str: "22059654-0" o "22.059.654-0" o "220596540")_   
+Aquí utilizamos Jerarquía de Clases para modelar donde **PERSONA**, actúa como superclase. Y todos los puntos son subclases, tal que, cada uno *"es una"* persona.
+
 🟦 **CARGOS** (ID PK: int, tipo: str, fecha_inicio: date, fecha_fin: date)  
 
 - 🔶 **tiene_un** (identificacion PK: int, ID PK: int) ➡️ _Relación Usuario con Cargos_  
 **Justificacion:** Se lee "Un Usuario puede tener muchos cargos" y "Un Cargo puede ser dado a muchos Usuarios"  
 
 - 🔶 **desempena** (id_socio PK: int, ID PK: int) ➡️ _Relación Socios con Cargos_  
+**Justificacion:** Se lee "Un Socio puede desempeñarse en muchos cargos" y "Un Cargo puede ser dado a muchos Socios"  
   
 🟦 **SISTEMA** (ID PK: int, admin: str)  
 
