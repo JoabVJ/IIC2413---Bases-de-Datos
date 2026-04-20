@@ -49,8 +49,7 @@ CARGOS
 **SISTEMA**(ID PK: int, admin: str)
 
 - **RESERVAS**(ID FK/PK: int, codigo PK: int, estado: str, horarios: date)
-_Relación Usuario con Reservas_
-- **tiene_acceso**(ID FK: int, identificacion FK: int, codigo FK: int)
+- **tiene_acceso**(ID FK: int, identificacion FK: int, codigo FK: int) ➡️ _Relación Usuario con Reservas_
 
 
 
