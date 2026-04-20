@@ -45,21 +45,37 @@ Una entidad personas que es la base para formar a los distintos tipos, tales com
 (Escribiré la cardinalidad según el orden puesto luego de la flecha, considerando "➡️ _Relación X con Y_", X a la izquierda e Y a la derecha)  
   
 🔷 "Un Usuario puede tener acceso a muchas Reservas" y "Una Reserva puede ser accedida por muchos Usuarios" ➡️ _Relación Usuario con Reservas_ **(n a n)**  
+  
 🔷 "Un Usuario puede tener muchos Cargos" y "Un Cargo puede ser dado a muchos Usuarios" ➡️ _Relación Usuario con Cargos_  **(n, n)**  
+  
 🔷 "Un Socio puede desempeñarse en muchos Cargos" y "Un Cargo puede ser dado a muchos Socios" ➡️ _Relación Socios con Cargos_ **(n, n)**  
+  
 🔷 "Un Socio es asignado a lo más a 1 Sucursal" y "Una Sucursal puede asignarse a muchos Socios" ➡️ _Relación Socios con Sucursales_ **(n, 0 a 1)**  
+  
 🔷 "Una Sucursal pertenece a lo más a 1 Comuna" y "Una Comuna tiene a lo más 1 Sucursal" ➡️ _Relación Sucursales con Comuna_ **(0 a 1, 0 a 1)**  
+  
 🔷 "Una Comuna pertenece a lo más a 1 Region" y "Una Region puede tener muchas Comunas" ➡️ _Relación Comuna con Region_ **(n, 0 a 1)**  
+  
 🔷 "Una Sucursal puede contar con muchos Lugares" y "Un Lugar puede estar en muchas Sucursales" ➡️ _Relación Sucursales con lugares_ **(n, n)**  
+  
 🔷 "Un Evento utiliza a lo más 1 Lugar" y "Un Lugar es utilizado a lo más por 1 Evento" ➡️ _Relación Eventos con Lugares_ **(0 a 1, 0 a 1)**  
+  
 🔷 "Un Cliente puede arrendar muchos Lugares" y "Un Lugar es arrendado a lo más por 1 Cliente"➡️ _Relación Cliente con Lugares_ **(0 a 1, n)**  
+  
 🔷 "Un Socio actúa como a lo más 1 Cliente" y "Un Cliente puede componerse por muchos Socios" ➡️ _Relación Socios con Cliente_ **(n, 0 a 1)**  
+  
 🔷 "Una Empresa/Insititución actúa como a lo más 1 Cliente" y "Un Cliente puede componerse por muchas Empresas/Insitituciones" ➡️ _Relación Empresa/Institucion con Cliente_ **(n, 0 a 1)**  
+  
 🔷 "Una Empresa/Insititución puede tener muchos Contactos_Empresa" y "Un Contacto_Empresa puede pertenecer a muchas Empresas/Instituciones" ➡️ _Relación Empresa/Institucion con Contacto_Empresa_ **(n, n)**  
+  
 🔷 "Una Empresa/Institucion puede contratar muchos Eventos" y "Un Evento es contratado a lo más por 1 Empresa/Institución" ➡️ _Relación Empresa/Institucion con Eventos_ **(0 a 1, n)**  
+  
 🔷 "Una persona puede ser " y "" ➡️ _Relación Persona con Eventos **(, )**  
+  
 🔷 "Un Socio puede contratar muchos Eventos" y "Un Evento es contratado a lo más por 1 Socio" ➡️ _Relación Socios con Eventos_ **(0 a 1, n)**  
-
+  
+**JERARQUÍA DE CLASES:** Es utilizada desde Persona hacia Usuarios, Socios, Beneficiarios, Adicional, Invitados y Contactos Empresa. Porque todos deben (según enunciado) tener estos datos, para identificarlos y tener bien armada la base de datos del Club Social y Deportivo DCColo.  
+  
 <!-- Usa el formato svg para evitar la perdida de calidad.> -->
 ![Esquema BD](ER-JOAB.drawio.svg)
 
@@ -94,15 +110,15 @@ Aquí utilizamos Jerarquía de Clases para modelar donde **PERSONA**, actúa com
 **Justificacion:** Debido a que cada uno tiene una superllave, entonces está en BCNF.
 
 - 🔶 **desempena** (id_socio PK: int, ID PK: int) ➡️ _Relación Socios con Cargos_  
-**Justificacion:** Debido a que cada uno tiene una superllave, entonces está en BCNF.
+**Justificacion:** Debido a que hay 2 llaves primarias en la tabla que une a Socios con Cargos, entonces está en BCNF.
   
 🟦 **SISTEMA** (ID PK: int, admin: str)  
 
 - 🟦 **RESERVAS** (ID FK/PK: int, codigo PK: int, fondos: int, fecha: date, hora: timestamp)  
 **Justificacion:** Se lee "Una Reserva es de un Sistema". Y como es una Entidad Débil, y además tiene una llave foránea, sólo el par (ID, codigo) es una llave primaria y los demás atributos de Reservas dependen de esta, por tanto, está en BCNF.   
   
-- 🔶 **tiene_acceso** (ID FK: int, identificacion FK: int, codigo FK: int) ➡️ _Relación Usuario con Reservas_  
-**Justificacion:** Debido a que cada uno tiene una superllave, entonces está en BCNF.
+- 🔶 **tiene_acceso** (ID FK: int, identificacion FK: int, codigo FK: int)  
+**Justificacion:** Debido a que se forma esta tabla intermedia con dos llaves primarias en Usuarios con Reservas, entonces está en BCNF.
 
 🟦 **SUCURSALES** (id_sucursal PK: int, nombre: str, comuna: str, gerente: str, id_socio_asignado: int, monto_a_pagar: int, cuotas: int)  
   
