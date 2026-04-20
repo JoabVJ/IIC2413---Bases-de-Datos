@@ -36,18 +36,21 @@ _(Considero el RUN como str: "22059654-0" o "22.059.654-0" o "220596540")_
 
 - **SOCIO**(id_socio PK: int, RUN FK: str, estado:str)
 
-- **BENEFICIARIO**(RUN PK: str) 
+- **BENEFICIARIO**(RUN FK: str) 
 
-- **ADICIONAL**(RUN PK: str)
+- **ADICIONAL**(RUN FK: str)
 
-- **INIVITADOS**(RUN PK: str)
+- **INIVITADOS**(RUN FK: str)
 
-- **CONTACTO_EMPRESA**(RUN PK: str, cargo: str)
+- **CONTACTO_EMPRESA**(RUN FK: str, cargo: str)
+
+CARGOS
 
 **SISTEMA**(ID PK: int, admin: str)
 
-- **RESERVAS**(codigo FK: int, estado: str, horarios: str)
-
+- **RESERVAS**(ID FK/PK: int, codigo PK: int, estado: str, horarios: date)
+_Relación Usuario con Reservas_
+- **tiene_acceso**(ID FK: int, identificacion FK: int, codigo FK: int)
 
 
 
