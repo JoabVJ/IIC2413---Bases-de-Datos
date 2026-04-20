@@ -31,9 +31,9 @@ Una entidad personas que es la base para formar a los distintos tipos, tales com
 
 - 🟩 **RESERVAS:** No podemos asegurar que el codigo *(Foreign Key)* sea único y tenga sentido por sí mismo, estas Reservas pertenecen directamente al Sistema. Si el Sistema desapareciera, las reservas no tendrían asociación a nada.
 
-- 🟩 **BENEFICIARIO** | Estas entidades provienen de Persona y la razón de que sean Entidad Débil de Socios es que no podrían llegar a tener 
-  🟩 **ADICIONAL**    | los privilegios del club DDColo si Socios no existiera. Además sus llaves son foráneas,  ya que, no tendrían
-  🟩 **INVITADOS**    | sentido si no tuvieran el id_socio que si tiene sentido para el Club Deportivo DCColo.
+- 🟩 **BENEFICIARIO** | Estas entidades provienen de Persona y la razón de que sean Entidad Débil de Socios es que no podrían llegar a tener<br>
+  🟩 **ADICIONAL**    | los privilegios del club DDColo si Socios no existiera. Además sus llaves son foráneas,  ya que, no tendrían<br>
+  🟩 **INVITADOS**    | sentido si no tuvieran el id_socio que si tiene sentido para el Club Deportivo DCColo.<br>
   
   
 - 🟩 **ASISTENTES:** 
