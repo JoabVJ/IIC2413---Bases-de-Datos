@@ -70,7 +70,7 @@ Una entidad personas que es la base para formar a los distintos tipos, tales com
   
 🔷 "Una Empresa/Institucion puede contratar muchos Eventos" y "Un Evento es contratado a lo más por 1 Empresa/Institución" ➡️ _Relación Empresa/Institucion con Eventos_ **(0 a 1, n)**  
   
-🔷 "Una persona puede ser " y "" ➡️ _Relación Persona con Eventos **(, )**  
+🔷 "Una persona puede asistir a muchos Eventos " y "Un Evento puede tener asistencia de muchas Personas" ➡️ _Relación Persona con Eventos **(n, n)**  
   
 🔷 "Un Socio puede contratar muchos Eventos" y "Un Evento es contratado a lo más por 1 Socio" ➡️ _Relación Socios con Eventos_ **(0 a 1, n)**  
   
