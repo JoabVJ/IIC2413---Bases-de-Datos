@@ -25,12 +25,12 @@ Una entidad personas que es la base para formar a los distintos tipos, tales com
 
 |   🟩   | Entidades                     |
 |---------|-------------------------------|
-|   🔷   | Relaciones                    |  
+|   🔷   | **Relaciones**                    |  
 
 **ENTIDADES DÉBILES:** 
-- 
-  
-	Inserta aquí el diagrama del modelo E/R "diagrama.svg" 
+- 🟩 
+
+
 <!-- Usa el formato svg para evitar la perdida de calidad.> -->
 ![Esquema BD](ER-JOAB.drawio.svg)
 
