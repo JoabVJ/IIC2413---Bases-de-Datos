@@ -22,8 +22,10 @@
 <!-- Usa el formato svg para evitar la perdida de calidad.> -->
 ![Esquema BD](ER-JOAB.drawio.svg)
 
-### 2.2 Modelo Entidad Relación normalizado
+### 2.2 Modelo Esquema Relacional normalizado
 <!-- ![Esquema BD](ER-JOAB.drawio.svg) -->
+
+Persona(<u>RUN</u>: int, nombre_completo: str, )
 
 ### 2.3 Consultas SQL
 
