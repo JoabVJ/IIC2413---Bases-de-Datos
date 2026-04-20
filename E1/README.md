@@ -43,12 +43,9 @@ _(Considero el RUN como str: "22059654-0" o "22.059.654-0" o "220596540")_
 🟦 **INIVITADOS** (RUN FK: str)
 
 🟦 **CONTACTO_EMPRESA** (RUN FK: str, cargo: str)    
-
-
-
+<br>
+<br>
 **CARGOS** ()  
-
-
 
 **SISTEMA** (ID PK: int, admin: str)
 
