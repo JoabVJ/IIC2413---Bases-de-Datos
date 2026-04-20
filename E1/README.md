@@ -15,7 +15,7 @@ Se nos pide modelar sobre el Club Social y Deportivo DCColo, para así darle sen
 ## 2. Solución aplicada
 	(Describe aquí la solución al problema)
   
-**¡Aclaración:** En clases de la sección 1, el profesor dice que no es necesaria la diferenciación entre una flecha gruesa (1 a n, por ejemplo) o una flecha normal (0 o 1 a n), por tanto, utilizo sólo flechas normales **!**
+**¡Aclaración:** En clases de la sección 1, el profesor dice que no es necesaria la diferenciación entre una flecha gruesa (1 a n, por ejemplo) o una flecha normal (0 o 1 a n), por tanto, utilizo sólo flechas normales**!**
   
 Queremos modelar esto de la siguiente forma:
   
