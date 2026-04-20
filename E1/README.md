@@ -43,11 +43,12 @@ _(Considero el RUN como str: "22059654-0" o "22.059.654-0" o "220596540")_
 🟦 **INIVITADOS** (RUN FK: str)
 
 🟦 **CONTACTO_EMPRESA** (RUN FK: str, cargo: str)    
-<br>
-<br>
-**CARGOS** ()  
-
-**SISTEMA** (ID PK: int, admin: str)
+  
+**CARGOS** (ID PK: int, tipo: str, fecha_inicio: date, fecha_fin: date)  
+🔶 **tiene_un**(identificacion PK: int, ID PK: int) ➡️ _Relación Usuario con Cargos_  
+🔶 **puede_tener**(id_socio PK: int, ID PK: int) ➡️ _Relación Socios con Cargos_  
+  
+**SISTEMA** (ID PK: int, admin: str)  
 
 🟦 **RESERVAS** (ID FK/PK: int, codigo PK: int, estado: str, horarios: date)  
 🔶 **tiene_acceso** (ID FK: int, identificacion FK: int, codigo FK: int) ➡️ _Relación Usuario con Reservas_
