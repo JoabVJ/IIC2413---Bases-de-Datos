@@ -27,8 +27,8 @@
 ### 2.2 Modelo Esquema Relacional normalizado
 <!-- ![Esquema BD](ER-JOAB.drawio.svg) -->
 
-Aquí utilizamos Jerarquía de Clases para modelar a las personas:
-_(Considero el RUN como str: "22059654-0" o "22.059.654-0" o "220596540")_
+Aquí utilizamos Jerarquía de Clases para modelar a las personas:  
+_(Considero el RUN como str: "22059654-0" o "22.059.654-0" o "220596540")_  
 
 - **PERSONA**(RUN PK: str, nombre_completo: str, correo: str, comuna: str, direccion: str, telefono: int, telefono_alternativo: int)
 
