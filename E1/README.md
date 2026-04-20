@@ -30,9 +30,11 @@
 Aquí utilizamos Jerarquía de Clases para modelar a las personas:  
 _(Considero el RUN como str: "22059654-0" o "22.059.654-0" o "220596540")_  
 
-- **PERSONA**(RUN PK: str, nombre_completo: str, correo: str, comuna: str, direccion: str, telefono: int, telefono_alternativo: int)
+**PERSONA**(RUN PK: str, nombre_completo: str, correo: str, comuna: str, direccion: str, telefono: int, telefono_alternativo: int)
 
-- **USUARIO**(identificacion PK: int, clave: str)
+- **USUARIO**(identificacion PK: int, RUN FK: str, clave: str)
+
+- **SOCIO**(id_socio PK: int, RUN FK: str, estado:str)
 
 - **BENEFICIARIO**(RUN PK: str) 
 
@@ -41,6 +43,12 @@ _(Considero el RUN como str: "22059654-0" o "22.059.654-0" o "220596540")_
 - **INIVITADOS**(RUN PK: str)
 
 - **CONTACTO_EMPRESA**(RUN PK: str, cargo: str)
+
+**SISTEMA**(ID PK: int, admin: str)
+
+- **RESERVAS**(codigo FK: int, estado: str, horarios: str)
+
+
 
 
 
