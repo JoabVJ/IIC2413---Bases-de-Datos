@@ -15,7 +15,7 @@ Se nos pide modelar sobre el Club Social y Deportivo DCColo, para así darle sen
 ## 2. Solución aplicada
 	(Describe aquí la solución al problema)
   
-*Aclaración:* En clases de la sección 1, el profesor dice que no es necesaria la diferenciación entre una flecha gruesa (1 a n, por ejemplo) o una flecha normal (0 o 1 a n), por tanto, utilizo sólo flechas normales.
+¡**Aclaración:** En clases de la sección 1, el profesor dice que no es necesaria la diferenciación entre una flecha gruesa (1 a n, por ejemplo) o una flecha normal (0 o 1 a n), por tanto, utilizo sólo flechas normales!
   
 Queremos modelar esto de la siguiente forma:
   
@@ -33,7 +33,7 @@ Una entidad personas que es la base para formar a los distintos tipos, tales com
 Aquí utilizamos Jerarquía de Clases para modelar a las personas:  
 _(Considero el RUN como str: "22059654-0" o "22.059.654-0" o "220596540")_  
 
-|   🟦   | **Relación:** Tablas                     |
+|   🟦   | *Relación (Tablas)*                     |
 |---------|------------------------------------------|
 |   🔶   | *Tablas que conectan a otras dos tablas* |
 
