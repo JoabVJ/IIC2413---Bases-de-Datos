@@ -74,7 +74,7 @@ Una entidad personas que es la base para formar a los distintos tipos, tales com
   
 🔷 "Un Socio puede contratar muchos Eventos" y "Un Evento es contratado a lo más por 1 Socio" ➡️ _Relación Socios con Eventos_ **(0 a 1, n)**  
   
-**JERARQUÍA DE CLASES:** Es utilizada desde Persona hacia Usuarios, Socios, Beneficiarios, Adicional, Invitados y Contactos Empresa. Porque todos deben (según enunciado) tener estos datos, para identificarlos y tener bien armada la base de datos del Club Social y Deportivo DCColo.  
+**JERARQUÍA DE CLASES:** Es utilizada desde Persona hacia Usuarios, Socios, Beneficiarios, Adicional, Invitados y Contactos Empresa. Porque todos deben (según enunciado) tener estos datos, para identificarlos y tener bien armada la base de datos del Club Social y Deportivo DCColo.  Lo usé para evitar tanta redundancia en el Modelo de E/R y así se comprende mejor a la vista. 
   
 <!-- Usa el formato svg para evitar la perdida de calidad.> -->
 ![Esquema BD](ER-JOAB.drawio.svg)
@@ -153,3 +153,15 @@ Aquí utilizamos Jerarquía de Clases para modelar donde **PERSONA**, actúa com
 
 ## 3. Referencias y bibliografía externa
 <!-- en cada sección indica %IA, Tecnología y Prompt -->
+Para este trabajo usé solamente el material del curso tanto Ayudantías (en especial la 2, 3 y 4) como los apuntes que hacía en clases.
+Excepto, con los emoticones que se ven en este README.md o la citación de links. Adjuntaré los links:  
+  
+<https://markdown.es/sintaxis-markdown/>  
+  
+<https://emojiterra.com/es/cuadrado-azul/>  
+  
+<https://emojiterra.com/es/cuadrado-verde/>  
+  
+<https://emojiterra.com/es/rombo-naranja-grande/>  
+  
+<https://emojiterra.com/es/rombo-azul-grande/>  
