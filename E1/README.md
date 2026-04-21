@@ -74,6 +74,9 @@ Una entidad personas que es la base para formar a los distintos tipos, tales com
   
 🔷 "Un Socio puede contratar muchos Eventos" y "Un Evento es contratado a lo más por 1 Socio" ➡️ _Relación Socios con Eventos_ **(0 a 1, n)**  
   
+🔷 "Una Persona puede contratar muchos Eventos" y "Un Evento es contratado a lo más por 1 Persona" ➡️ _Relación Persona con Eventos_ **(0 a 1, n)**  
+  
+
 **JERARQUÍA DE CLASES:** Es utilizada desde Persona hacia Usuarios, Socios, Beneficiarios, Adicional, Invitados y Contactos Empresa. Porque todos deben (según enunciado) tener estos datos, para identificarlos y tener bien armada la base de datos del Club Social y Deportivo DCColo.  Lo usé para evitar tanta redundancia en el Modelo de E/R y así se comprende mejor a la vista. 
   
 <!-- Usa el formato svg para evitar la perdida de calidad.> -->
@@ -90,62 +93,75 @@ Una entidad personas que es la base para formar a los distintos tipos, tales com
   
 🟦 **PERSONA** (RUN PK: str, nombre_completo: str, correo: str, comuna: str, direccion: str, telefono: int, telefono_alternativo: int)
 
-- 🟦 **USUARIO** (identificacion PK: int, RUN FK: str, clave: str)
+- 🟦 **USUARIO** (identificacion PK: int, PERSONA.RUN FK: str, clave: str)
 
-- 🟦 **SOCIO** (id_socio PK: int, RUN FK: str, estado: str, numero_adicionales: int)
+- 🟦 **SOCIOS** (id_socio PK: int, SUCURSALES.id_sucursal FK: int, PERSONA.RUN FK: str, CLIENTE.id_cliente: int, estado: str, numero_adicionales: int)
+**Justificar:** Aquí agregamos la id_sucursal FK, porque como es N:1 con Sucursales, la implementación al modelo relacional debe ser con una llave foránea para evitar redundancia de tablas.  
+  
+- 🟦 **BENEFICIARIO** (PERSONA.RUN FK: str) 
 
-- 🟦 **BENEFICIARIO** (RUN FK: str) 
+- 🟦 **ADICIONAL** (PERSONA.RUN FK: str)
 
-- 🟦 **ADICIONAL** (RUN FK: str)
+- 🟦 **INIVITADOS** (PERSONA.RUN FK: str)
 
-- 🟦 **INIVITADOS** (RUN FK: str)
-
-- 🟦 **CONTACTO_EMPRESA** (RUN FK: str, cargo: str)   
+- 🟦 **CONTACTO_EMPRESA** (PERSONA.RUN FK: str, cargo: str)   
 _(Considero el RUN como str: "22059654-0" o "22.059.654-0" o "220596540")_   
-Aquí utilizamos Jerarquía de Clases para modelar donde **PERSONA**, actúa como superclase. Y todos los puntos son subclases, tal que, cada uno *"es una"* persona.
+Aquí utilizamos Jerarquía de Clases para modelar donde **PERSONA**, actúa como superclase. Y todos los puntos son subclases, tal que, cada uno *"es una"* persona. Y al no tener redundancia, ni tuplas en las columnas, tenemos que satisface BCNF.
 
 🟦 **CARGOS** (ID PK: int, tipo: str, fecha_inicio: date, fecha_fin: date)  
+**Justificacion:** Notamos que es la única llave primaria y los demás atributos no son independientes a esta, por tanto, se satisface BCNF.
+- 🔶 **tiene** (identificacion PK: int, ID PK: int) 
+**Justificacion:** Debido a que esta tabla se compone de dos llaves primarias independiente de las demás, entonces está en BCNF.
 
-- 🔶 **tiene_un** (identificacion PK: int, ID PK: int) ➡️ _Relación Usuario con Cargos_  
-**Justificacion:** Debido a que cada uno tiene una superllave, entonces está en BCNF.
-
-- 🔶 **desempena** (id_socio PK: int, ID PK: int) ➡️ _Relación Socios con Cargos_  
+- 🔶 **desempena** (id_socio PK: int, ID PK: int)
 **Justificacion:** Debido a que hay 2 llaves primarias en la tabla que une a Socios con Cargos, entonces está en BCNF.
   
 🟦 **SISTEMA** (ID PK: int, admin: str)  
-
-- 🟦 **RESERVAS** (ID FK/PK: int, codigo PK: int, fondos: int, fecha: date, hora: timestamp)  
-**Justificacion:** Se lee "Una Reserva es de un Sistema". Y como es una Entidad Débil, y además tiene una llave foránea, sólo el par (ID, codigo) es una llave primaria y los demás atributos de Reservas dependen de esta, por tanto, está en BCNF.   
+**Justificacion:** Por definicion, es facilmente notar que admin depende claramente solo de la llave primaria y no por sí mismo, por tanto, es BCNF.
+- 🟦 **RESERVAS** (SISTEMA.ID FK/PK: int, codigo PK: int, fondos: int, fecha: date, hora: timestamp)  
+**Justificacion:** Se lee "Una Reserva es de un Sistema". Y como es una Entidad Débil, y además tiene una llave foránea, sólo el par (ID, codigo) es una llave primaria y los demás atributos de Reservas dependen de esta, por tanto, está en BCNF.  
   
-- 🔶 **tiene_acceso** (ID FK: int, identificacion FK: int, codigo FK: int)  
-**Justificacion:** Debido a que se forma esta tabla intermedia con dos llaves primarias en Usuarios con Reservas, entonces está en BCNF.
-
-🟦 **SUCURSALES** (id_sucursal PK: int, nombre: str, comuna: str, gerente: str, id_socio_asignado: int, monto_a_pagar: int, cuotas: int)  
+- 🔶 **tiene_acceso** (SISTEMA.ID PK/FK: int, USUARIO.identificacion PK/FK: int, RESERVAS.codigo PK/FK: int)  
+**Justificacion:** Como todos son parte de la llave primaria y no hay atributos que dependan sólo una parte entonces se cumple BCNF.  
   
-- 🟦 **MEMBRESÍA** (id_sucursal PK, id_miembro:FK, fecha_inicio: date, fecha_termino: date, valor_socio: int, valor_por_adicional_invitado: int)  
+🟦 **SUCURSALES** (id_sucursal PK: int, COMUNA.codigo_unico FK: int, nombre: str, comuna: str, gerente: str, id_socio_asignado: int, monto_a_pagar: int, cuotas: int)  
+  **Justificacion:** Notamos que ningun atributo depende de otro subconjunto dentro de la llave primaria, entonces cumple BCNF.  
+
+- 🟦 **MEMBRESÍA** (id_sucursal PK/FK, id_miembro:PK, fecha_inicio: date, fecha_termino: date, valor_socio: int, valor_por_adicional_invitado: int)  
 **Justificacion:** Se lee "Una Membresía depende de su respectiva Sucursal". Y como es una Entidad Débil, y además tiene una llave foránea, sólo el par (ID, codigo) es una llave primaria y los demás atributos de Reservas dependen de esta, por tanto, está en BCNF. 
   
-- 🟦 **COMUNA** (codigo_unico PK: int, nombre:str)  
-**Justificacion:** **FALTA DECIR PQ ESTA EN BOYCE CODD**
+- 🟦 **COMUNA** (codigo_unico PK: int, REGION.codigo FK: int, nombre:str)  
+**Justificacion:** Notamos que la relación es 1:1 con Sucursales, por tanto tomamos la PK de COMUNA y la añadimos a Sucursales para evitar redundancia de tablas, por tanto, se satisface BCNF.  
   
 - 🟦 **REGION** (codigo PK: int, nombre: str)  
-**Justificacion:** **FALTA DECIR PQ ESTA EN BOYCE CODD**
-
-🟦 **LUGARES** (ID PK: int, precio: int, capacidad: int, tipo: str, hora: timestamp, fecha: date, valor_arriendo: int)
-**Justificacion:** **FALTA DECIR PQ ESTA EN BOYCE CODD**
-
-
+**Justificacion:** Notamos que la relacion es N:1, por tanto, en vez de crear una tabla que los una, para evitar redundancia, colocamos FK en COMUNA que apunta a REGIÓN, y como evitamos tuplas en la tabla cumplimos 1NF, y además satisface BCNF.  
+  
+🟦 **LUGARES** (ID PK: int, CLIENTE.id_cliente FK: int, EVENTOS.codigo_unico FK: int, precio: int, capacidad: int, tipo: str, hora: timestamp, fecha: date, valor_arriendo: int)  
+  
+- 🔶**cuenta_con** (ID PK: int, id_sucursal PK: int)
+**Justificacion:** Tenemos la tabla que une a Sucursales con Lugares, además es N:N, por tanto, se cumple que con sólo poner sus llaves primarias en "cuenta_con" tenemos que satisface BCNF.  
+  
 - 🟦 **RESERVA** (nombre: str, ejecutada: bool, monto_pagado: int, faltante: int)  
 **Justificacion:** Se lee "Una Reserva es de un respectivo Lugar". Y como es una Entidad Débil, y además tiene una llave foránea, sólo el par (ID, nombre) es una llave primaria y los demás atributos de Reserva dependen de esta, por tanto, está en BCNF.  
-
-
-
-🟦 **EVENTOS** ()
-- 🔶 **asisten_a** (codigo_unico PK: int, RUN PK: int)  
-**Justificacion:** Se define esta tabla entre Persona y Eventos para evitar la duplicidad de hacer una Entidad Débil conectada al Evento. Como esta tabla contiene dos llaves primarias, está en BCNF.  
   
-🟦 **** ()
-🟦 **** ()
+- 🟦 **CLIENTE** (id_cliente PK: int, nombre: str)  
+**Justificacion:** Tenemos que se asocia con LUGARES, sin embargo, notamos una relación de 1:N. Por tanto, si colocamos la llave foránea de cliente en Lugares, cumpliremos 1NF, evitamos redundancia en tablas y finalmente satisface BCNF.  
+  
+Además me gustaría agregar el cambio para cumplir BCNF, en donde SOCIOS se asocia con CLIENTE. Tenemos N:1, por tanto, hay que colocar la llave foránea en SOCIOS que apunta a CLIENTE.id_cliente. Satisface BCNF por las razones también vistas anteriormente.  
+  
+- 🟦 **EMPRESA/INSITUCION** (RUT PK: int, CLIENTE.id_cliente: int, nombre: str, tipo: str)  
+**Justificacion:** De igual forma, agregamos el cambio para cumplir BCNF, en donde EMPRESA/INSTITUCION se asocia con CLIENTE. Tenemos N:1, por tanto, hay que colocar la llave foránea en EMPRESA/INSTITUCION que apunte a CLIENTE.id_cliente. Satisface BCNF por las razones también vistas anteriormente.  
+
+- 🔶 **tiene** (RUN PK: str, RUT PK: int)  
+**Justficación:** Tenemos que Empresa/Institucion se asocia con Contacto_Empresa N:N, por tanto, creamos esta tabla que une sus llaves primarias y notamos que se cumple que ninguno de los demás atributos es independiente o dependiente de un subconjunto de alguno, por tanto, satisface BCNF.
+
+🟦 **EVENTOS** (codigo_unico PK: int, run_contratador: int, fecha: date, nombre: str, PERSONA.RUN FK: int, SOCIOS.id_socio FK: int, EMPRESA/INSTITUCION.RUT FK: int)  
+**Justificación:** Notamos que EVENTOS se asocia con LUGARES y es 1:1. Debemos agregar una llave foránea a cualquiera de los dos, en este caso, agregaré la llave de EVENTOS como llave foránea a LUGARES. Esto satisface BCNF.   
+  
+- 🔶 **asisten_a** (codigo_unico PK: int, RUN PK: str)  
+**Justificacion:** Se define esta tabla entre Persona y Eventos para evitar la duplicidad de hacer una Entidad Débil conectada al Evento. Como esta tabla contiene dos llaves primarias, está en BCNF.  
+
+- Notamos tres asociaciones más que quedan: PERSONA con EVENTOS, SOCIOS con EVENTOS, EMPRESA/INSTITUCION CON EVENTOS. Todos son 1:N, por tanto, debemos agregar a EVENTOS 3 atributos que son llaves foráneas, tal que, se agregaría PERSONA.RUN FK, SOCIOS.id_socio FK y EMPRESA/INSTITUCION.RUT FK. Cumple 1NF, y además satisface BCNF.
 
 ### 2.3 Consultas SQL
 
@@ -154,7 +170,7 @@ Aquí utilizamos Jerarquía de Clases para modelar donde **PERSONA**, actúa com
 ## 3. Referencias y bibliografía externa
 <!-- en cada sección indica %IA, Tecnología y Prompt -->
 Para este trabajo usé solamente el material del curso tanto Ayudantías (en especial la 2, 3 y 4) como los apuntes que hacía en clases.
-Excepto, con los emoticones que se ven en este README.md, la citación de links, o saltos de linea como ´</br>´. Adjuntaré los links:  
+Excepto, con los emoticones que se ven en este README.md, la citación de links, o saltos de linea como <´br´>. Adjuntaré los links:  
   
 <https://spec.commonmark.org/0.30/#hard-line-breaks>
 
