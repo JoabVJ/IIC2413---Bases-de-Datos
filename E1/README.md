@@ -124,7 +124,7 @@ Aquí utilizamos Jerarquía de Clases para modelar donde **PERSONA**, actúa com
 - 🔶 **tiene_acceso** (SISTEMA.ID PK/FK: int, USUARIO.identificacion PK/FK: int, RESERVAS.codigo PK/FK: int)  
 **Justificacion:** Como todos son parte de la llave primaria y no hay atributos que dependan sólo una parte entonces se cumple BCNF.  
   
-🟦 **SUCURSALES** (id_sucursal PK: int, COMUNA.codigo_unico FK: int, nombre: str, comuna: str, gerente: str, id_socio_asignado: int, monto_a_pagar: int, cuotas: int)  
+🟦 **SUCURSALES** (id_sucursal PK: int, COMUNA.codigo_unico FK: int, nombre: str, gerente: str, id_socio_asignado: int, monto_a_pagar: int, cuotas: int)  
   **Justificacion:** Notamos que ningun atributo depende de otro subconjunto dentro de la llave primaria, entonces cumple BCNF.  
 
 - 🟦 **MEMBRESÍA** (id_sucursal PK/FK, id_miembro:PK, fecha_inicio: date, fecha_termino: date, valor_socio: int, valor_por_adicional_invitado: int)  
@@ -161,8 +161,12 @@ Además me gustaría agregar el cambio para cumplir BCNF, en donde SOCIOS se aso
 - 🔶 **asisten_a** (codigo_unico PK: int, RUN PK: str)  
 **Justificacion:** Se define esta tabla entre Persona y Eventos para evitar la duplicidad de hacer una Entidad Débil conectada al Evento. Como esta tabla contiene dos llaves primarias, está en BCNF.  
 
-- Notamos tres asociaciones más que quedan: PERSONA con EVENTOS, SOCIOS con EVENTOS, EMPRESA/INSTITUCION CON EVENTOS. Todos son 1:N, por tanto, debemos agregar a EVENTOS 3 atributos que son llaves foráneas, tal que, se agregaría PERSONA.RUN FK, SOCIOS.id_socio FK y EMPRESA/INSTITUCION.RUT FK. Cumple 1NF, y además satisface BCNF.
-
+- Notamos tres asociaciones más que quedan: PERSONA con EVENTOS, SOCIOS con EVENTOS, EMPRESA/INSTITUCION CON EVENTOS. Todos son 1:N, por tanto, debemos agregar a EVENTOS 3 atributos que son llaves foráneas, tal que, se agregaría PERSONA.RUN FK, SOCIOS.id_socio FK y EMPRESA/INSTITUCION.RUT FK. Cumple 1NF, y además satisface BCNF.  
+  
+	**¿Por qué el diseño de este esquema (relacional) resuelve los temas de Fidelidad, Redundancia, Anomalías, Simplicidad y Buena Elección de llaves primarias?**  
+  
+**Respuesta:** Bueno, se mantiene la Fidelidad considerando el uso de las Jerraquías y Entidades Débiles, además, se nota que no habrá redundancia al arreglar y modificar el esquema relacional segun las cardinalidades entre entidades del modelo de E/R. En cuanto a Anomalías, podríamos tener que algún nombre o dato es cambiado en alguna relación, sin embargo es fácil de modificar gracias al proceso de evitar hacer cambios en más de una tabla. Precisamente, gracias a este último punto damos simplicidad al esquema, por tanto, evitamos tener tablas sin sentido o que simplemente hagan más grande un problema que podría reducirse. Finalmente, la elección de lalves primarias como ids, o datos que son particularmente únicos por definición en el enunciado, serán siempre buenas llaves primarias que evitan problemas en JOINS futuros.  
+  
 ### 2.3 Consultas SQL
 
 	A
