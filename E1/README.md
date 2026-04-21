@@ -124,7 +124,7 @@ Aquí utilizamos Jerarquía de Clases para modelar donde **PERSONA**, actúa com
 - 🔶 **tiene_acceso** (SISTEMA.ID PK/FK: int, USUARIO.identificacion PK/FK: int, RESERVAS.codigo PK/FK: int)  
 **Justificacion:** Como todos son parte de la llave primaria y no hay atributos que dependan sólo una parte entonces se cumple BCNF.  
   
-🟦 **SUCURSALES** (id_sucursal PK: int, COMUNA.codigo_unico FK: int, nombre: str, gerente: str, id_socio_asignado: int, monto_a_pagar: int, cuotas: int)  
+🟦 **SUCURSALES** (id_sucursal PK: int, COMUNA.codigo_unico FK: int, nombre: str, gerente: str, id_socio_asignado: int, monto_a_pagar: int, cuotas_total: int, cuotas_atrasadas: int)  
   **Justificacion:** Notamos que ningun atributo depende de otro subconjunto dentro de la llave primaria, entonces cumple BCNF.  
 
 - 🟦 **MEMBRESÍA** (id_sucursal PK/FK, id_miembro:PK, fecha_inicio: date, fecha_termino: date, valor_socio: int, valor_por_adicional_invitado: int)  
@@ -169,7 +169,16 @@ Además me gustaría agregar el cambio para cumplir BCNF, en donde SOCIOS se aso
   
 ### 2.3 Consultas SQL
 
-	A
+    CREATE TABLE sucursales(
+			id_sucursal INTEGER PRIMARY KEY,
+			codigo_unico INTEGER REFERENCES comuna(codigo_unico),
+			nombre VARCHAR(50),
+			gerente VARCHAR(100),
+			id_socio_asignado INTEGER,
+			
+	);
+
+
 
 ## 3. Referencias y bibliografía externa
 <!-- en cada sección indica %IA, Tecnología y Prompt -->
@@ -187,3 +196,8 @@ Excepto, con los emoticones que se ven en este README.md, la citación de links,
 <https://emojiterra.com/es/rombo-naranja-grande/>  
   
 <https://emojiterra.com/es/rombo-azul-grande/>  
+
+
+SUBIR ARCHIVOS:
+scp README.md joab.vj.e1@stonebraker.ing.uc.cl:E1/
+scp ER-JOAB.drawio.svg joab.vj.e1@stonebraker.ing.uc.cl:E1/
