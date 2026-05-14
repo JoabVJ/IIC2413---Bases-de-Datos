@@ -33,20 +33,29 @@ Quiero recalcar que según el código de la Ayudantía 6 *(pág. 18)* en el que 
   
 **Registros anulados:**  
   
-**Registros eliminados**  
-  
+**Registros eliminados:** Nada ha sido eliminado, sólo reemplazado por nulos notorios.  
+**TABLA RESUMIDA DE LOGS CON PHP**
 | **CSV**       | **Atributo**          | **Explicación** |
 |---------------------|----------------------|----------------------|
 | cargos_administrativos        | run_persona       | El LOG mostró 28 lineas asociadas a un run: Formato inválido de RUN            |
 | cargos_administrativos        | fecha_inicio_cargo       | El LOG mostró 28 lineas asociadas a un run: Formato inválido de fecha de inicio            |
 | cargos_administrativos        | fecha_termino_cargo       | El LOG mostró 28 lineas asociadas a un run: Formato inválido de fecha de termino           |
+| eventos        | nombre_cliente       | El LOG mostró 129 lineas asociadas a evento_id: nombre cliente vacio             |
 | eventos        | rut_contacto_empresa       | El LOG mostró 129 lineas asociadas a evento_id: rut contacto empresa vacio             |
 | eventos        | nombre_contacto_empresa       | El LOG mostró 187 lineas asociadas a evento_id: nombre contacto empresa vacio             |
 | eventos        | cargo_contacto       | El LOG mostró 187 lineas asociadas a evento_id: cargo contacto vacio             |
+| eventos        | monto_pagado_ejecucion       | El LOG mostró 22 lineas asociadas a evento_id: monto pagado en ejecucion vacio             |
+| XXXX        | XXX       | El LOG mostró X lineas asociadas a XX: X             |
+| XXXX        | XXX       | El LOG mostró X lineas asociadas a XX: X             |
 | XXXX        | XXX       | El LOG mostró X lineas asociadas a XX: X             |
 | XXXX        | XXX       | El LOG mostró X lineas asociadas a XX: X             |
 | XXXX        | XXX       | El LOG mostró X lineas asociadas a XX: X             |
 
+**TABLA RESUMIDA DE LOGS CON SQL**
+| XXXX        | XXX       | El LOG mostró X lineas asociadas a XX: X             |
+| XXXX        | XXX       | El LOG mostró X lineas asociadas a XX: X             |
+| XXXX        | XXX       | El LOG mostró X lineas asociadas a XX: X             |
+| XXXX        | XXX       | El LOG mostró X lineas asociadas a XX: X             |
 
 ### 2.2 Carga de datos con Psql
 
