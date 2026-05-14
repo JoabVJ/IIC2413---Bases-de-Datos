@@ -29,7 +29,7 @@ Quiero recalcar que según el código de la Ayudantía 6 *(pág. 18)* en el que 
 
 **Registros reparados:**  
 - Los headers de cada archivo, porque noté que en el de regiones había un error.  
-- Se solucionaron las fechas de termino
+- Se solucionaron las fechas de termino vacías de tal forma que el nulo es -> 0000-00-00. Además se solucionaron los formatos de los demás atributos mencionados en la tabla resumida de LOG.
   
 **Registros anulados:**  
   
@@ -40,7 +40,12 @@ Quiero recalcar que según el código de la Ayudantía 6 *(pág. 18)* en el que 
 | cargos_administrativos        | run_persona       | El LOG mostró 28 lineas asociadas a un run: Formato inválido de RUN            |
 | cargos_administrativos        | fecha_inicio_cargo       | El LOG mostró 28 lineas asociadas a un run: Formato inválido de fecha de inicio            |
 | cargos_administrativos        | fecha_termino_cargo       | El LOG mostró 28 lineas asociadas a un run: Formato inválido de fecha de termino           |
-| cargos_administrativos        | fecha_termino_cargo       | El LOG mostró 18 lineas asociadas a un run: no hay fecha de termino             |
+| XXXX        | XXX       | El LOG mostró X lineas asociadas a XX: X             |
+| XXXX        | XXX       | El LOG mostró X lineas asociadas a XX: X             |
+| XXXX        | XXX       | El LOG mostró X lineas asociadas a XX: X             |
+| XXXX        | XXX       | El LOG mostró X lineas asociadas a XX: X             |
+| XXXX        | XXX       | El LOG mostró X lineas asociadas a XX: X             |
+| XXXX        | XXX       | El LOG mostró X lineas asociadas a XX: X             |
 
 
 ### 2.2 Carga de datos con Psql
