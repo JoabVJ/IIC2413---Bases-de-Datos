@@ -25,13 +25,22 @@ El problema consiste en que ya tenemos los csv de este Club Social y Deportivo D
 
 Para ello, primeramente leo todos los archivos, luego procedo a mandar el header a todos los archivos que utilizaré para guiarme y mejorar estos datos (No puedo copiar y pegar). Me doy cuenta que hay un header que tiene otro formato y es errado para este tipo de análisis y mejoras, por tanto, para evitar futuros errores cree una función que les da un pequeño arreglo que debiera funcionar para cualquier base de datos (.csv) que ingrese.  
   
+Quiero recalcar que según el código de la Ayudantía 6 *(pág. 18)* en el que me inspiré para hacer la parte de php, cada vez que el LOG aparece en mi csv, entonces yo arreglé los errores pero al ejecutar nuevamente el .php ocurre que lo que estaba en el LOG se reinicia y ya no lo toma como error. Entonces todos los LOG que se me hayan sido entregados los colocaré en la tabla resumida pedida en "Discussions"
+
 **Registros reparados:**  
 - Los headers de cada archivo, porque noté que en el de regiones había un error.  
+- Se solucionaron las fechas de termino
   
 **Registros anulados:**  
   
 **Registros eliminados**  
   
+| **CSV**       | **Atributo**          | **Explicación** |
+|---------------------|----------------------|----------------------|
+| cargos_administrativos        | fecha_termino_cargo       | El LOG mostró 18 lineas asociadas a un run diciendo: no hay fecha de termino             |
+
+
+
 ### 2.2 Carga de datos con Psql
 
 	Incluir el detalle de la distribución de los datos en las tablas del esquema
