@@ -37,8 +37,9 @@ Quiero recalcar que según el código de la Ayudantía 6 *(pág. 18)* en el que 
   
 | **CSV**       | **Atributo**          | **Explicación** |
 |---------------------|----------------------|----------------------|
-| cargos_administrativos        | fecha_termino_cargo       | El LOG mostró 18 lineas asociadas a un run diciendo: no hay fecha de termino             |
-
+| cargos_administrativos        | fecha_termino_cargo       | El LOG mostró 18 lineas asociadas a un run: no hay fecha de termino             |
+| cargos_administrativos        | fecha_inicio_cargo       | El LOG mostró 28 lineas asociadas a un run: Formato inválido de fecha de inicio            |
+| cargos_administrativos        | fecha_termino_cargo       | El LOG mostró 28 lineas asociadas a un run: Formato inválido de fecha de termino           |
 
 
 ### 2.2 Carga de datos con Psql
